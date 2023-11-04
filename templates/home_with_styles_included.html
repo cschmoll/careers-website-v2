@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Career Portal</title>
+    <style>
+      h1 {
+        font-size: 40px;
+        font-family: Roboto;
+        font-weight: normal;
+        color: rgb(50, 50, 50);
+        text-align: center;
+      }
+      h2 {
+        font-family: Roboto;
+        font-size: 32px;
+        color: rgb(100,100,100);
+        text-align: center;
+        font-weight: normal;
+      }
+      .bodytext {
+        font-family: Roboto;
+        color: rgb(80,80,80);
+      }
+
+      #banner {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+      }
+      #container {
+        max-width: 720px;
+        margin: 0 auto 0 auto;
+      }
+    </style>
+    <link rel="shortcut icon" mimetype='image/vnd.microsoft.icon' href="{{ url_for('static', filename='favicon.ico') }}"/>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Career Portal</h1>
+      <img id='banner' src="https://careers-website.cschmoll.repl.co/static/banner.jpeg" height="320px">
+        <p class="bodytext"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <h2>Open Positions</h2>
+      <p>show jobs here</p>
+      <div style="text-align:center;" >
+        <button>Contact us</button>
+        <p>Copyright 2023, Careers Website</p>
+      </div>  
+    </div>
+  </body>
+</html>
