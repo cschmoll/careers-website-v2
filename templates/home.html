@@ -29,14 +29,21 @@
                 </p>
              </div>
           </div>
-          <div class="col">
+          <div class="col d-sm-none d-md-block">
             <div class="p-3">
                <img class="img-fluid rounded float-end" id="people" src="/static/people.jpg">
             </div>
           </div>
-        <div>  
-      </div>
-      <h2 class="text-center mt-2 mb-4">Job Openings</h2>
+        <div class="d-lg-none d-xl-block"> 
+          <div class="row gx-5">
+            <div class="col">
+              <div class="p-3">
+                <img class="img-fluid rounded float-end" id="people" src="/static/people.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-center mt-2 mb-4">Job Openings</h2>
       <div>
         {% for job in jobs %}
           {% include 'jobitem.html' %} 
