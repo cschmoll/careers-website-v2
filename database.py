@@ -1,9 +1,9 @@
 import sqlalchemy
 from sqlalchemy import create_engine, text
+import os
 
-engine = create_engine(
-    "postgresql+psycopg2://careersv2_user:1VllDv0yWPA2C4pV6tqqMLgKQyHuhjv5@dpg-cl76m2qvokcc73bvdve0-a.frankfurt-postgres.render.com/careersv2"
-)
+engine = create_engine(os.environ['DB_CONNECTION_STRING'])
+
 
 def load_jobs_from_db():
   with engine.connect() as connection:
@@ -16,8 +16,9 @@ def load_jobs_from_db():
 
     return jobs
 
+
 with engine.connect() as connection:
-  # nur noch zu Dokuzwecken enthalten, wird nicht mehr genutzt 
+  # nur noch zu Dokuzwecken enthalten, wird nicht mehr genutzt
   result = connection.execute(text("select * from jobs"))
   print("Type result: ", type(result))
   result_all = result.all()

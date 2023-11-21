@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, jsonify
 from database import engine, load_jobs_from_db
 
@@ -43,9 +44,8 @@ def hello_world():
 @app.route("/api/jobs")
 def list_jobs():
 
-  #return jsonify(JOBS)
-  jobs = load_jobs_from_db()
-  return jsonify(jobs)
+  #jobs = load_jobs_from_db()
+  return jsonify(JOBS)
 
 
 if __name__ == '__main__':
