@@ -7,8 +7,11 @@
       <div><b>Salary: </b>{{job['salary']}}</div> 
       {% endif %}
     </div>  
-    <div class="col-3 align-self-center">
+    <!--div class="col-3 align-self-center">
       <a href="mailto:cschmoll@hotmail.de?&subject=Application for {{job['title']}}" type="button" class="btn btn-outline-primary">Apply</a>
+    </div-->  
+    <div class="col-3 align-self-center">
+      <a href="/job/{{job.id}}" type="button" class="btn btn-outline-primary">Apply</a>
     </div>  
   </div>  
 </div>  
