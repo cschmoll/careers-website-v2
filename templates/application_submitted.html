@@ -1,0 +1,31 @@
+ <head>
+    {% include 'bootstrap.html' %}
+    <title>Career Portal - Application confirmation</title>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+
+    {% include 'banner.html' %}
+
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">Application submitted for job : {{job['title']}}</h1>
+      <div class="container px-4 text-start">
+        <form>
+          <fieldset disabled>
+             <div class="mb-3">
+              <label for="disabledTextInput" class="form-label">Full Name</label>
+              <input type="text" readonly class="form-control-plaintext" id="fullname" value={{application.fullname}}>
+            </div>
+            <div class="mb-3">
+              <label for="disabledTextInput" class="form-label">Email</label>
+              <input type="text" readonly class="form-control-plaintext" id="fullname" value={{application.email}}>
+            </div>
+          </fieldset>
+        </form>
+        <div class="text-center">
+        <button class="btn btn-secondary btn-lg">Contact us</button>
+      </div>  
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>

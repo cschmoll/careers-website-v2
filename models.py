@@ -4,14 +4,28 @@ from sqlalchemy_serializer import SerializerMixin
 
 Base = declarative_base()
 
+
 class Jobs(Base, SerializerMixin):
-    __tablename__ = 'jobs'
-    id = Column(Integer, primary_key=True)
-    title = Column(String)
-    salary = Column(Integer)
-    currency = Column(String)
-    responsibilities = Column(String)
-    requirements = Column(String)
-    created_at = Column(DateTime)
-    updated_at = Column(DateTime)
-    location = Column(String)
+  __tablename__ = 'jobs'
+  id = Column(Integer, primary_key=True)
+  title = Column(String)
+  salary = Column(Integer)
+  currency = Column(String)
+  responsibilities = Column(String)
+  requirements = Column(String)
+  created_at = Column(DateTime)
+  updated_at = Column(DateTime)
+  location = Column(String)
+
+
+class Application(Base, SerializerMixin):
+  __tablename__ = 'applications'
+  id = Column(Integer, primary_key=True)
+  job_id = Column(Integer) 
+  fullname = Column(String)
+  email = Column(String)
+  linkedin = Column(String)
+  education = Column(String)
+  workexperience = Column(String)
+  resumelink = Column(String)
+  created_at = Column(DateTime)

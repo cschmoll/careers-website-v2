@@ -1,7 +1,7 @@
 import json, random
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from database import engine, load_jobs_from_db, load_job_from_db, Session
-from models import Base, Jobs
+from models import Base, Jobs, Application
 
 #https://careers-website-v2.cschmoll.repl.co/
 app = Flask(__name__)
@@ -64,8 +64,7 @@ def show_job(job_id):
   else:
     #job = job[0]
 
-    return render_template('job.html',
-                           job=selected_job)
+    return render_template('job.html', job=selected_job)
 
 
 @app.route("/api/jobs")
@@ -81,6 +80,28 @@ def list_jobs():
   #jobs = load_jobs_from_db()
   #return jsonify(JOBS)
   return jsonify(jobs)
+
+
+@app.route("/job/<id>/apply", methods=["POST"])
+def apply_to_job(id):
+
+  session = Session()
+
+  data = request.form
+
+  job = session.query(Jobs).filter(Jobs.id == id).first()
+  selected_job = job.to_dict()
+  #new_application = Application(fullname=jsonify(data["fullname"]))
+  new_application = Application(fullname=data["fullname"], job_id=id)
+  session.add(new_application)
+  session.commit()
+
+  #return jsonify(data)
+  return render_template('application_submitted.html',
+                         application=data,
+                         job=job)
+  #return render_template('application_submitted.html', application=data, job=selected_job)
+  #wenn ich diese Alternative nehme, dann kann ich auf der HTML Seite mit job.title arbeiten statt job["title"]
 
 
 if __name__ == '__main__':
